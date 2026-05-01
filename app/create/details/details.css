@@ -1,0 +1,109 @@
+/* Page wrapper */
+.detailsWrapper {
+  min-height: 100vh;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 40px; /* ✅ extra space safety */
+}
+
+/* Heading */
+.detailsWrapper h2 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 700;
+  padding-top:30px;
+}
+
+/* Form group */
+.formGroup {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label */
+.formGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* Inputs */
+.formGroup input,
+.formGroup textarea {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+/* Focus effect */
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-color: #FF8A65;
+  box-shadow: 0 0 0 2px rgba(139, 28, 74, 0.1);
+}
+
+/* Textarea */
+.formGroup textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+/* Error */
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* Buttons container */
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  gap: 10px;
+}
+
+/* Back button */
+.backBtn {
+  flex: 1;
+  background: transparent;
+  border: 1px solid #FF8A65;
+  color: #FF8A65;
+  padding: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Continue button */
+.nextBtn {
+  flex: 1;
+  background: #FF8A65;
+  border: none;
+  color: white;
+  padding: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover */
+.nextBtn:hover {
+  transform: scale(1.05);
+}
+
+.backBtn:hover {
+  background: #fce4ec;
+}

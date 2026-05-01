@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* =========================
+   BASE RESET (IMPORTANT)
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: #000;
+}
+
+/* =========================
+   DEFAULT (DESKTOP VIEW)
+   DO NOT CHANGE YOUR UI HERE
+========================= */
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 16px;
+}
+
+button {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* =========================
+   GLOBAL CONTAINER SYSTEM
+========================= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* =========================
+   LOGIN / POPUP SAFETY
+========================= */
+.popup {
+  width: 90%;
+  max-width: 360px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   HERO / SECTIONS (OPTIONAL SAFE STYLE)
+========================= */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* =========================
+   BUTTON DEFAULT STYLE
+========================= */
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+/* =========================
+   📱 MOBILE RESPONSIVE (360px–480px)
+========================= */
+@media (max-width: 480px) {
+
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 12px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .popup {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .hero {
+    padding: 10px;
+  }
+}
+
+/* =========================
+   📱 VERY SMALL PHONES (≤360px)
+========================= */
+@media (max-width: 360px) {
+
+  h1 {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 13px;
+  }
+
+  .popup {
+    width: 96%;
+  }
+}

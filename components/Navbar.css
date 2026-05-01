@@ -1,0 +1,78 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 14px 16px;
+  box-shadow: 0 4px 12px rgba(255, 138, 101, 0.25);
+  z-index: 1000;
+}
+
+/* NAV LINKS (DESKTOP) */
+.navLinks {
+  display: flex;
+  gap: 25px;
+}
+
+/* LINKS STYLE */
+.navItem {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FF8A65;
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.navItem:hover {
+  background: #fff1ec;
+  transform: translateY(-2px);
+}
+
+.navItem.active {
+  background: #FF8A65;
+  color: white;
+}
+
+/* HAMBURGER ICON (HIDDEN IN DESKTOP) */
+.menuIcon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #FF8A65;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 360px) {
+
+  .menuIcon {
+    display: block;
+  }
+
+  .navLinks {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    display: none;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .navLinks.active {
+    display: flex;
+  }
+
+  .navItem {
+    width: 100%;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+  }
+}

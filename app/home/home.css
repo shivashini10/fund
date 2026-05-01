@@ -1,0 +1,114 @@
+/* Base */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f5f8ff;
+}
+
+/* Main Container */
+.main {
+  margin-top: 70px;
+  text-align: center;
+  color: #000;
+}
+
+/* Header */
+.welcome{
+  padding-top: 20px;
+  margin-bottom:10px;
+}
+
+/* Logo */
+.logo {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff8a65;
+}
+
+/* Hero */
+.hero h2 {
+  margin-top: 15px;
+  font-size: 22px;
+}
+
+.hero p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin: 10px 0 20px;
+}
+
+/* Buttons (shared style) */
+.cta,
+.callBtn {
+  background: #ff8a65;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* CTA Button */
+.cta {
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cta:hover {
+  transform: scale(1.05);
+}
+
+/* Call Button */
+.callBtn {
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+/* Features */
+.features {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+/* Cards */
+.card {
+  flex: 1;
+  min-width: 120px;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Help Section */
+.help {
+  margin-top: 30px;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: linear-gradient(135deg, #ffd0c2, #fff1ec);
+  color: #000;
+}
+
+.helpText {
+  line-height: 20px;
+  text-align: left;
+}
+

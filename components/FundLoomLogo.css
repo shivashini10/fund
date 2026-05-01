@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #FF8A65;
+}
+
+/* Center the logo perfectly */
+.logoWrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* SVG size + animation */
+.logoIcon {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 10px;
+  animation: pop 1s ease;
+}
+
+/* Heart outline */
+.heart {
+  stroke: #ffffff;
+  stroke-width: 8;
+  fill: none;
+}
+
+/* Threads (colors) */
+.thread1 {
+  stroke: #ffd6e0;
+  stroke-width: 6;
+}
+
+.thread2 {
+  stroke: #ffeaa7;
+  stroke-width: 6;
+}
+
+.thread3 {
+  stroke: #81ecec;
+  stroke-width: 6;
+}
+
+/* Logo text */
+.logoText {
+  font-size: 36px;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.fund {
+  color: #ffffff;
+}
+
+.loom {
+  color: #ffd6e0;
+}
+
+/* Tagline */
+.tagline {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.85;
+}
+
+/* Animation */
+@keyframes pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
