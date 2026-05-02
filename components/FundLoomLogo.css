@@ -80,3 +80,24 @@ body {
     opacity: 1;
   }
 }
+
+@media (max-width: 360px) {
+
+  .logoIcon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .logoText {
+    font-size: 24px;
+  }
+
+  .tagline {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+
+  .logoWrapper {
+    padding: 15px;
+  }
+}
