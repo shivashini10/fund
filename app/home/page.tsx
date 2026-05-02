@@ -18,11 +18,18 @@ export default function Home() {
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
+  const user = localStorage.getItem("user");
+
+  if (!user) {
     const timer = setTimeout(() => {
       setShowLogin(true);
     }, 2000);
+
     return () => clearTimeout(timer);
-  }, []);
+  } else {
+    setShowLogin(false);
+  }
+}, []);
 
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
