@@ -10,8 +10,8 @@ export default function Navbar() {
 
   useEffect(() => {
     setMounted(true);
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
+    const user = localStorage.getItem("user"); // ✅ FIX
+    setIsLoggedIn(!!user);
   }, []);
 
   if (!mounted) return null;
