@@ -22,13 +22,9 @@ export default function Home() {
   const user = localStorage.getItem("user");
 
   if (!user) {
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setShowLogin(true);
     }, 2000);
-
-    return () => clearTimeout(timer);
-  } else {
-    setShowLogin(false);
   }
 }, []);
 
