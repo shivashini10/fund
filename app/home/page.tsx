@@ -17,23 +17,24 @@ export default function Home() {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+  // ✅ Show popup only if user not logged in
   useEffect(() => {
-  const user = localStorage.getItem("user");
+    const user = localStorage.getItem("user");
 
-  if (!user) {
-    const timer = setTimeout(() => {
-      setShowLogin(true);
-    }, 2000);
+    if (!user) {
+      const timer = setTimeout(() => {
+        setShowLogin(true);
+      }, 2000);
 
-    return () => clearTimeout(timer);
-  } else {
-    setShowLogin(false);
-  }
-}, []);
+      return () => clearTimeout(timer);
+    } else {
+      setShowLogin(false);
+    }
+  }, []);
 
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  // ✅ UPDATED LOGIN FUNCTION
+  // ✅ LOGIN FUNCTION (FIXED)
   const handleLogin = async () => {
     if (!email.trim() || !password.trim()) {
       setError("Please fill the details");
@@ -47,18 +48,18 @@ export default function Home() {
 
     try {
       const res = await fetch(
-  `${process.env.NEXT_PUBLIC_API_URL}/api/user/login`,
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password }),
-  }
-);
-console.log("API:", process.env.NEXT_PUBLIC_API_URL);
+        `${process.env.NEXT_PUBLIC_API_URL}/api/user/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await res.json();
+      console.log("Response:", data);
 
       if (!res.ok) {
         throw new Error(data.message || "Login failed");
@@ -69,9 +70,6 @@ console.log("API:", process.env.NEXT_PUBLIC_API_URL);
 
       setError("");
       setShowLogin(false);
-
-      // ✅ Redirect
-      router.push("/home");
 
     } catch (err: any) {
       console.error(err);
@@ -96,6 +94,7 @@ console.log("API:", process.env.NEXT_PUBLIC_API_URL);
     <div className="appContainer">
       <div className="main">
 
+        {/* Navbar hidden only during popup */}
         {!showLogin && <Navbar />}
 
         <div className="welcome">
@@ -141,6 +140,7 @@ console.log("API:", process.env.NEXT_PUBLIC_API_URL);
           </a>
         </div>
 
+        {/* LOGIN POPUP */}
         {showLogin && (
           <div style={styles.overlay}>
             <div style={styles.backdrop}></div>
