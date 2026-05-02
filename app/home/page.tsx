@@ -240,7 +240,7 @@ const styles: any = {
     width: "90%",
     maxWidth: "360px",
     textAlign: "center",
-    zIndex: 2,
+    zIndex: 9999,
   },
   title: {
     fontSize: "20px",
