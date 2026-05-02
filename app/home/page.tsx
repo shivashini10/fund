@@ -96,7 +96,8 @@ console.log("API:", process.env.NEXT_PUBLIC_API_URL);
     <div className="appContainer">
       <div className="main">
 
-        {!showLogin && <h1>NAVBAR TEST</h1>}
+        {!showLogin && <Navbar />}
+
         <div className="welcome">
           <h1>Welcome to FundLoom</h1>
         </div>
