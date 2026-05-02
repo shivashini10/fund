@@ -40,19 +40,22 @@ export default function PreviewPage() {
         return;
       }
 
-      const res = await fetch("http://localhost:5000/api/campaign", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: data.title,
-          story: data.story,
-          amount: Number(data.amount),
-          image: data.image || "",
-          beneficiary: beneficiary,
-        }),
-      });
+     const res = await fetch(
+  `${process.env.NEXT_PUBLIC_API_URL}/api/campaign`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      title: data.title,
+      story: data.story,
+      amount: Number(data.amount),
+      image: data.image || "",
+      beneficiary: beneficiary,
+    }),
+  }
+);
 
       const result = await res.json();
 

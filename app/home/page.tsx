@@ -17,19 +17,16 @@ export default function Home() {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  // ✅ Show login popup after 2 sec
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLogin(true);
     }, 2000);
-
     return () => clearTimeout(timer);
   }, []);
 
-  // ✅ Email validation helper
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  // ✅ LOGIN FUNCTION
+  // ✅ UPDATED LOGIN FUNCTION
   const handleLogin = async () => {
     if (!email.trim() || !password.trim()) {
       setError("Please fill the details");
@@ -42,13 +39,17 @@ export default function Home() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+  `${process.env.NEXT_PUBLIC_API_URL}/api/user/login`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  }
+);
+console.log("API:", process.env.NEXT_PUBLIC_API_URL);
 
       const data = await res.json();
 
@@ -56,19 +57,21 @@ export default function Home() {
         throw new Error(data.message || "Login failed");
       }
 
-      console.log("Saved in MongoDB:", data);
-
-      localStorage.setItem("token", "user123");
+      // ✅ Save user
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       setError("");
       setShowLogin(false);
+
+      // ✅ Redirect
+      router.push("/home");
+
     } catch (err: any) {
       console.error(err);
-      setError(err.message);
+      setError(err.message || "Something went wrong");
     }
   };
 
-  // ✅ Protect create page
   const handleStart = () => {
     const user = localStorage.getItem("user");
 
@@ -80,20 +83,18 @@ export default function Home() {
   };
 
   const isLoggedIn =
-    typeof window !== "undefined" && localStorage.getItem("user");
+    typeof window !== "undefined" && !!localStorage.getItem("user");
 
-   return (
-  <div className="appContainer">
-    <div className="main">
+  return (
+    <div className="appContainer">
+      <div className="main">
 
-      {/* ✅ Navbar hidden when popup is open */}
-      {!showLogin && <Navbar />}
+        {!showLogin && <Navbar />}
 
-      <div className="welcome">
-        <h1>Welcome to FundLoom</h1>
-      </div>
+        <div className="welcome">
+          <h1>Welcome to FundLoom</h1>
+        </div>
 
-        {/* HERO */}
         <div className="hero">
           <Image src="/donate.jpg" alt="donation" width={220} height={220} />
 
@@ -114,14 +115,12 @@ export default function Home() {
           </button>
         </div>
 
-        {/* FEATURES */}
         <div className="features">
           <div className="card">⚡ Quick Setup</div>
           <div className="card">🌍 Global Reach</div>
           <div className="card">🔒 Secure</div>
         </div>
 
-        {/* HELP */}
         <div className="help">
           <div>
             <b>
@@ -135,7 +134,6 @@ export default function Home() {
           </a>
         </div>
 
-        {/* LOGIN POPUP */}
         {showLogin && (
           <div style={styles.overlay}>
             <div style={styles.backdrop}></div>
@@ -147,26 +145,24 @@ export default function Home() {
               {/* EMAIL */}
               <div style={styles.inputGroup}>
                 <label style={styles.label}>Email</label>
-
                 <input
-  type="email"
-  placeholder="Enter your email (e.g. example@gmail.com)"  // ✅ placeholder
-  value={email}
-  autoComplete="off"                                       // ✅ prevent autofill
-  onChange={(e) => {
-    const value = e.target.value;
-    setEmail(value);
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  autoComplete="off"
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setEmail(value);
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (value && !emailRegex.test(value)) {
-      setError("Invalid email format");
-    } else {
-      setError("");
-    }
-  }}
-  style={styles.input}
-/>
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (value && !emailRegex.test(value)) {
+                      setError("Invalid email format");
+                    } else {
+                      setError("");
+                    }
+                  }}
+                  style={styles.input}
+                />
               </div>
 
               {/* PASSWORD */}
@@ -174,28 +170,26 @@ export default function Home() {
                 <label style={styles.label}>Password</label>
 
                 <div style={styles.passwordWrapper}>
-  <input
-    type={showPassword ? "text" : "password"}   // ✅ show/hide
-    placeholder="Enter your password"           // ✅ placeholder only
-    value={password}
-    autoComplete="new-password"                 // ✅ prevent autofill
-    onChange={(e) => setPassword(e.target.value)}
-    style={styles.input}
-  />
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                    value={password}
+                    autoComplete="new-password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    style={styles.input}
+                  />
 
-  <span
-    onClick={() => setShowPassword(!showPassword)}
-    style={styles.eye}
-  >
-    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-  </span>
-</div>
+                  <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={styles.eye}
+                  >
+                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </span>
+                </div>
               </div>
 
-              {/* ERROR */}
               {error && <p style={styles.error}>{error}</p>}
 
-              {/* LOGIN BUTTON */}
               <button
                 onClick={handleLogin}
                 style={{
