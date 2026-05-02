@@ -223,7 +223,7 @@ const styles: any = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    zIndex: 999,
+    zIndex: 9999,
   },
   backdrop: {
     position: "absolute",
@@ -240,7 +240,7 @@ const styles: any = {
     width: "90%",
     maxWidth: "360px",
     textAlign: "center",
-    zIndex: 9999,
+    zIndex: 2,
   },
   title: {
     fontSize: "20px",
