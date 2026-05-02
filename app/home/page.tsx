@@ -19,18 +19,18 @@ export default function Home() {
 
   // ✅ Show popup only if user not logged in
   useEffect(() => {
-    const user = localStorage.getItem("user");
+  const user = localStorage.getItem("user");
 
-    if (!user) {
-      const timer = setTimeout(() => {
-        setShowLogin(true);
-      }, 2000);
+  if (!user) {
+    const timer = setTimeout(() => {
+      setShowLogin(true);
+    }, 2000);
 
-      return () => clearTimeout(timer);
-    } else {
-      setShowLogin(false);
-    }
-  }, []);
+    return () => clearTimeout(timer);
+  } else {
+    setShowLogin(false);
+  }
+}, []);
 
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
