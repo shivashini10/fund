@@ -209,16 +209,16 @@ export default function Home() {
 /* STYLES */
 const styles: any = {
   overlay: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 9999,
-  },
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100vh",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  zIndex: 99999,   // 🔥 IMPORTANT
+}
   backdrop: {
     position: "absolute",
     width: "100%",
