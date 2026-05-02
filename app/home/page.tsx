@@ -218,7 +218,7 @@ const styles: any = {
   justifyContent: "center",
   alignItems: "center",
   zIndex: 99999,   // 🔥 IMPORTANT
-}
+},
   backdrop: {
     position: "absolute",
     width: "100%",
