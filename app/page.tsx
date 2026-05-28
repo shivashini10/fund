@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import FundLoomLogo from "../components/FundLoomLogo";
-import "../styles/global.css";
+import "../components/FundLoomLogo.css";
 
 export default function SplashPage() {
   const router = useRouter();
@@ -17,10 +17,16 @@ export default function SplashPage() {
   }, [router]);
 
   return (
-    <main className="h-screen flex flex-col items-center justify-center bg-gradient-to-br from-orange-100 to-orange-200">
-      <div className="animate-bounce scale-105">
+    <main className="splash-container">
+
+      {/* Animated Logo */}
+      <div className="logo-wrapper">
         <FundLoomLogo />
       </div>
+
+      {/* Loader */}
+      <div className="loader"></div>
+
     </main>
   );
 }

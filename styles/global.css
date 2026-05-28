@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* =========================
-   BASE RESET (IMPORTANT)
+   BASE RESET
 ========================= */
 * {
   margin: 0;
@@ -9,42 +9,104 @@
   box-sizing: border-box;
 }
 
-html, body {
+/* =========================
+   HTML + BODY
+========================= */
+html,
+body {
   width: 100%;
   overflow-x: hidden;
   font-family: 'Inter', sans-serif;
   background: #fff;
   color: #000;
+  scroll-behavior: smooth;
 }
 
 /* =========================
-   DEFAULT (DESKTOP VIEW)
-   DO NOT CHANGE YOUR UI HERE
+   BODY DEFAULTS
 ========================= */
 body {
   font-size: 16px;
   line-height: 1.5;
 }
 
+/* =========================
+   TYPOGRAPHY
+========================= */
 h1 {
   font-size: 32px;
+  font-weight: 700;
 }
 
 h2 {
   font-size: 24px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 p {
   font-size: 16px;
-}
-
-button {
-  font-size: 16px;
-  cursor: pointer;
+  color: #444;
 }
 
 /* =========================
-   GLOBAL CONTAINER SYSTEM
+   LINKS
+========================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* =========================
+   INPUTS
+========================= */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #FF8A65;
+  box-shadow: 0 0 0 2px rgba(255, 138, 101, 0.15);
+}
+
+/* =========================
+   IMAGES
+========================= */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+   GLOBAL CONTAINER
 ========================= */
 .container {
   width: 100%;
@@ -54,14 +116,35 @@ button {
 }
 
 /* =========================
-   LOGIN / POPUP SAFETY
+   PAGE WRAPPER
+========================= */
+.page {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding-top: 70px;
+  padding-bottom: 80px;
+}
+
+/* =========================
+   APP CONTAINER
+========================= */
+.appContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f9fc;
+}
+
+/* =========================
+   POPUP / MODAL
 ========================= */
 .popup {
   width: 90%;
   max-width: 360px;
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .overlay {
@@ -70,10 +153,11 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 /* =========================
-   HERO / SECTIONS (OPTIONAL SAFE STYLE)
+   HERO
 ========================= */
 .hero {
   display: flex;
@@ -83,16 +167,135 @@ button {
 }
 
 /* =========================
-   BUTTON DEFAULT STYLE
+   CARDS
 ========================= */
-button {
-  border: none;
-  border-radius: 10px;
-  padding: 10px 16px;
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 /* =========================
-   📱 MOBILE RESPONSIVE (360px–480px)
+   SPLASH SCREEN
+========================= */
+.splash-container {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #fff5f2, #ffe0d6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+}
+
+.logo-wrapper {
+  animation: floatLogo 2s ease-in-out infinite;
+}
+
+.splash-title {
+  margin-top: 18px;
+  font-size: 38px;
+  font-weight: 800;
+  color: #FF8A65;
+  letter-spacing: 1px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.splash-text {
+  margin-top: 8px;
+  color: #666;
+  font-size: 15px;
+  max-width: 300px;
+  line-height: 24px;
+  animation: fadeIn 1.8s ease-in-out;
+}
+
+.loader {
+  margin-top: 28px;
+  width: 42px;
+  height: 42px;
+  border: 4px solid #ffd5ca;
+  border-top: 4px solid #FF8A65;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes floatLogo {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   TABLETS
+========================= */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 0 16px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .page {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .splash-title {
+    font-size: 32px;
+  }
+
+  .splash-text {
+    font-size: 14px;
+  }
+}
+
+/* =========================
+   MOBILE
 ========================= */
 @media (max-width: 480px) {
 
@@ -108,7 +311,15 @@ button {
     font-size: 18px;
   }
 
+  h3 {
+    font-size: 17px;
+  }
+
   p {
+    font-size: 14px;
+  }
+
+  button {
     font-size: 14px;
   }
 
@@ -116,9 +327,9 @@ button {
     padding: 12px;
   }
 
-  button {
-    width: 100%;
-    font-size: 14px;
+  .page {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .popup {
@@ -129,10 +340,28 @@ button {
   .hero {
     padding: 10px;
   }
+
+  .splash-title {
+    font-size: 28px;
+  }
+
+  .splash-text {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .loader {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo-wrapper {
+    transform: scale(0.9);
+  }
 }
 
 /* =========================
-   📱 VERY SMALL PHONES (≤360px)
+   VERY SMALL DEVICES
 ========================= */
 @media (max-width: 360px) {
 
@@ -140,11 +369,24 @@ button {
     font-size: 20px;
   }
 
+  h2 {
+    font-size: 17px;
+  }
+
   button {
     font-size: 13px;
+    padding: 10px;
   }
 
   .popup {
     width: 96%;
+  }
+
+  .splash-title {
+    font-size: 24px;
+  }
+
+  .splash-text {
+    font-size: 12px;
   }
 }

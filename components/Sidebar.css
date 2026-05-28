@@ -1,0 +1,139 @@
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 270px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ff7043, #ff8a65);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+  color: white;
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.menuWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.sidebarBtn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.sidebarBtn:hover {
+  background: rgba(255,255,255,0.28);
+  transform: translateX(4px);
+}
+
+/* =========================
+   ACTIVE
+========================= */
+
+.activeSidebarBtn {
+  background: white;
+  color: #ff7043;
+}
+
+/* =========================
+   ICON
+========================= */
+
+.menuIcon {
+  font-size: 18px;
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logoutBtn {
+  margin-top: auto;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: white;
+  color: #ff7043;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logoutBtn:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .sidebar {
+    width: 220px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    position: relative;
+    border-radius: 0 0 24px 24px;
+  }
+
+  .menuWrapper {
+    gap: 10px;
+  }
+
+  .sidebarBtn {
+    font-size: 14px;
+  }
+
+}

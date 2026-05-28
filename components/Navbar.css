@@ -1,54 +1,73 @@
 .navbar {
+  width: 100%;
+  padding: 20px 8%;
+  background: white;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  z-index: 999;
+
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background: white;
-  padding: 14px 16px;
-  box-shadow: 0 4px 12px rgba(255, 138, 101, 0.25);
-  z-index: 1000;
+
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* NAV LINKS (DESKTOP) */
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 32px;
+  font-weight: 800;
+  color: #ff7043;
+  cursor: pointer;
+}
+
+/* NAV LINKS */
 .navLinks {
   display: flex;
-  gap: 25px;
+  gap: 30px;
+  align-items: center;
 }
 
-/* LINKS STYLE */
-.navItem {
+.navLinks a {
+  cursor: pointer;
   text-decoration: none;
-  font-size: 16px;
+  color: #111;
   font-weight: 600;
-  color: #FF8A65;
-  padding: 8px 14px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-.navItem:hover {
-  background: #fff1ec;
-  transform: translateY(-2px);
+.navLinks a:hover {
+  color: #ff7043;
 }
 
-.navItem.active {
-  background: #FF8A65;
+/* BUTTON */
+.loginBtn {
+  border: none;
+  background: #ff7043;
   color: white;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* HAMBURGER ICON (HIDDEN IN DESKTOP) */
+.loginBtn:hover {
+  transform: scale(1.05);
+}
+
+/* HAMBURGER ICON */
 .menuIcon {
   display: none;
-  font-size: 24px;
   cursor: pointer;
-  color: #FF8A65;
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 360px) {
+/* MOBILE */
+@media (max-width: 992px) {
 
   .menuIcon {
     display: block;
@@ -56,23 +75,31 @@
 
   .navLinks {
     position: absolute;
-    top: 60px;
-    left: 0;
+    top: 80px;
+    right: 0;
     width: 100%;
     background: white;
+
     flex-direction: column;
+    gap: 20px;
+
+    padding: 20px;
     display: none;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
   }
 
   .navLinks.active {
     display: flex;
   }
 
-  .navItem {
-    width: 100%;
-    padding: 12px;
-    border-bottom: 1px solid #eee;
-    text-align: center;
+  .desktopLogin {
+    display: none;
+  }
+
+  .mobileLogin {
+    display: block;
+  }
+
+  .loginBtn{
+    margin-left:0;
   }
 }

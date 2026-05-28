@@ -1,0 +1,204 @@
+.dashboard-page {
+  min-height: 100vh;
+  background: #f8f9fb;
+}
+
+/* Header */
+.dashboard-header {
+  padding: 50px 20px;
+  text-align: center;
+
+  background: linear-gradient(
+    to right,
+    #fff3e0,
+    #ffe0b2
+  );
+}
+
+.dashboard-header h1 {
+  font-size: 42px;
+  color: #ff7043;
+
+  margin-bottom: 10px;
+}
+
+.dashboard-header p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* Stats */
+.stats-grid {
+  max-width: 1200px;
+
+  margin: 40px auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  padding: 0 20px;
+}
+
+.stats-card {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+  transition: 0.3s;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+}
+
+.stats-card h2 {
+  font-size: 34px;
+  color: #ff7043;
+
+  margin-bottom: 10px;
+}
+
+.stats-card p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* Section */
+.campaign-section {
+  max-width: 1200px;
+  margin: auto;
+
+  padding: 20px;
+}
+
+.section-title {
+  margin-bottom: 25px;
+}
+
+.section-title h2 {
+  font-size: 30px;
+  color: #222;
+}
+
+/* Grid */
+.campaign-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 25px;
+}
+
+/* Card */
+.campaign-card {
+  background: white;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+  transition: 0.3s;
+}
+
+.campaign-card:hover {
+  transform: translateY(-5px);
+}
+
+.campaign-image {
+  width: 100%;
+  height: 220px;
+
+  object-fit: cover;
+}
+
+.campaign-content {
+  padding: 20px;
+}
+
+.campaign-content h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+
+  color: #222;
+}
+
+.story {
+  color: #666;
+  line-height: 1.6;
+
+  margin-bottom: 15px;
+}
+
+.campaign-info p {
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.status {
+  color: green;
+  font-weight: 600;
+}
+
+/* Progress */
+.progressBar {
+  width: 100%;
+  height: 12px;
+
+  background: #eee;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  margin-top: 15px;
+}
+
+.progressFill {
+  height: 100%;
+
+  background: linear-gradient(
+    to right,
+    #ff7043,
+    #ffab91
+  );
+
+  border-radius: 20px;
+}
+
+/* Loading */
+.loadingText {
+  text-align: center;
+  color: #666;
+
+  font-size: 18px;
+
+  margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header h1 {
+    font-size: 32px;
+  }
+
+  .section-title h2 {
+    font-size: 24px;
+  }
+
+}

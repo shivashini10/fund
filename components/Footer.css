@@ -1,0 +1,149 @@
+.footer {
+  background: #ff7043;
+  color: #ffffff;
+  padding: 60px 8% 25px;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+
+  align-items: start;
+}
+
+/* ================= LEFT LOGO ================= */
+.footerLogo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+}
+
+/* ICON + TEXT ROW */
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoRow svg {
+  display: block;
+}
+
+.logoRow span {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.8;
+}
+
+/* DESCRIPTION */
+.footerLogo p {
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* ================= SUPPORT ================= */
+.footerSupport {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footerSupport h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footerSupport p {
+  font-size: 14px;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* ================= CONTACT ================= */
+.footerContact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footerContact h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footerContact p {
+  display: flex;
+  align-items: center;
+  /* 🔥 vertical alignment */
+  gap: 10px;
+  /* 🔥 space between icon & text */
+  font-size: 14px;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ICON FIX */
+.footerContact svg {
+  flex-shrink: 0;
+  /* prevents icon shrinking */
+  display: block;
+}
+
+.socialMedia {
+  display: flex;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.socialIcon {
+  width: 30px;
+  height: 30px;
+
+  background: #000;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.socialIcon:hover {
+  transform: scale(1.1);
+}
+
+/* ================= BOTTOM ================= */
+.footerBottom {
+  grid-column: 1 / -1;
+
+  margin-top: 20px;
+  padding-top: 20px;
+
+  border-top: 1px solid rgb(255, 255, 255);
+
+  font-size: 13px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.footerBottom p {
+  color: #ffffff;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footerLogo {
+    max-width: 100%;
+  }
+}

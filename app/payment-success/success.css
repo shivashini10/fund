@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background:#fff7f3;
+}
+
+.successPage {
+  margin: 100px auto 60px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.successCard {
+  width: 500px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.checkCircle {
+  width: 80px;
+  height: 80px;
+  background: #f97316;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.successCard h1 {
+  font-size: 30px;
+  margin-bottom: 12px;
+  color: #ea580c;
+}
+
+.successCard p {
+  color: gray;
+  margin-bottom: 25px;
+}
+
+.transactionBox {
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #fed7aa;
+  padding-bottom: 10px;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 15px;
+}
+
+.homeBtn,
+.campaignBtn {
+  flex: 1;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.homeBtn {
+  background: #f97316;
+  color: white;
+}
+
+.campaignBtn {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.homeBtn:hover {
+  background: #ea580c;
+}
+
+.campaignBtn:hover {
+  background: #fed7aa;
+}
+
+@media(max-width: 600px) {
+
+  .successCard {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+  }
+}

@@ -1,176 +1,220 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import "./create.css";
+import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
-import "../../styles/global.css";
 
-export default function Create() {
-  const [selected, setSelected] = useState("");
-  const [error, setError] = useState("");
+export default function CreateCampaignPage() {
   const router = useRouter();
 
-  const handleSelect = (value: string) => {
-    setSelected(value);
-    setError("");
+  const [formData, setFormData] = useState({
+    title: "",
+    category: "",
+    amount: "",
+    story: "",
+  });
+
+  const [preview, setPreview] = useState("");
+  const [error, setError] = useState("");
+
+  // RESTORE DATA (EDIT MODE)
+  useEffect(() => {
+    const saved = localStorage.getItem("campaign");
+
+    if (saved) {
+      const data = JSON.parse(saved);
+
+      setFormData({
+        title: data.title || "",
+        category: data.category || "",
+        amount: data.amount || "",
+        story: data.story || "",
+      });
+
+      if (data.image) {
+        setPreview(data.image);
+      }
+    }
+  }, []);
+
+  // HANDLE INPUT
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
-  const handleContinue = async () => {
-    if (!selected) {
-      setError("Please select who the fundraiser is for");
+  // IMAGE UPLOAD
+  const handleImage = (e: any) => {
+    const file = e.target.files?.[0];
+
+    if (file) {
+      const imgURL = URL.createObjectURL(file);
+      setPreview(imgURL);
+    }
+  };
+
+  // SUBMIT
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    const amountValue = Number(formData.amount);
+
+    // VALIDATION
+    if (!formData.title || !formData.category || !formData.amount) {
+      setError("Please fill all required fields (*)");
+      return;
+    }
+
+    if (amountValue <= 0) {
+      setError("Goal amount must be greater than 0");
       return;
     }
 
     setError("");
 
-    // 🔥 STORE IN LOCAL STATE (TEMP until DB step)
-    const beneficiaryData = {
-      beneficiary: selected,
+    const campaignData = {
+      ...formData,
+      amount: amountValue,
+      image: preview,
+      _id: Date.now().toString(),
+      raised: 0,
+      donors: 0,
     };
 
-    // Optional: keep for now (you will remove later)
-    localStorage.setItem("beneficiary", selected);
+    // SAVE CURRENT CAMPAIGN
+    localStorage.setItem("campaign", JSON.stringify(campaignData));
 
-    // 🔥 READY FOR MONGODB (future use)
-    // You can send this to backend API later if needed
-    /*
-    await fetch("/api/beneficiary", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(beneficiaryData),
-    });
-    */
+    // SAVE TO ALL CAMPAIGNS
+    const existing =
+      JSON.parse(localStorage.getItem("allCampaigns") || "[]");
 
-    router.push("/create/details");
+    localStorage.setItem(
+      "allCampaigns",
+      JSON.stringify([...existing, campaignData])
+    );
+
+    // REDIRECT
+    router.push("/preview");
   };
 
   return (
-    <div className="page">
-
+    <div className="createCampaignPage">
       <Navbar />
 
-      <div className="topBox">
-        <h3>Beneficiary Details</h3>
+      <section className="createHero">
+        <h1>Start a Campaign</h1>
+        <p>Raise funds and bring hope to people in need ❤️</p>
+      </section>
+
+      <div className="createWrapper">
+        <div className="formContainer">
+
+          <form onSubmit={handleSubmit}>
+
+            {/* TITLE */}
+            <div className="formGroup">
+              <label>Campaign Title *</label>
+              <input
+                type="text"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+              />
+            </div>
+
+            {/* CATEGORY */}
+            <div className="formGroup">
+              <label>Category *</label>
+              <select
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+              >
+                <option value="">Select Category</option>
+                <option value="Medical">❤️ Medical</option>
+                <option value="Education">📚 Education</option>
+                <option value="Flood Relief">🌊 Flood Relief</option>
+                <option value="Emergency">🚨 Emergency</option>
+                <option value="Animals">🐶 Animals</option>
+              </select>
+            </div>
+
+            {/* GOAL AMOUNT */}
+            <div className="formGroup">
+              <label>Goal Amount *</label>
+              <input
+                type="number"
+                name="amount"
+                value={formData.amount}
+                min="1"
+                onChange={(e) => {
+                  const value = e.target.value;
+
+                  if (Number(value) < 0) return;
+
+                  setFormData({
+                    ...formData,
+                    amount: value,
+                  });
+                }}
+              />
+            </div>
+
+            {/* IMAGE */}
+            <div className="formGroup">
+              <label>Campaign Image</label>
+
+              <div className="uploadBox">
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImage}
+                />
+                <p>Upload campaign image</p>
+              </div>
+
+              {preview && (
+                <img
+                  src={preview}
+                  alt="preview"
+                  className="previewImage"
+                />
+              )}
+            </div>
+
+            {/* STORY */}
+            <div className="formGroup">
+              <label>Story</label>
+              <textarea
+                name="story"
+                value={formData.story}
+                onChange={handleChange}
+                rows={6}
+              />
+            </div>
+
+            {/* ERROR */}
+            {error && (
+              <p className="error">{error}</p>
+            )}
+
+            {/* BUTTON */}
+            <button type="submit" className="createBtn">
+              Create Campaign
+            </button>
+
+          </form>
+
+        </div>
       </div>
 
-      <p className="subtitle">
-        This fundraiser will benefit
-      </p>
-
-      <div className={`maincard ${error ? "maincardError" : ""}`}>
-
-        {/* Myself */}
-        <div className="group">
-          <p className="groupTitle">Myself</p>
-
-          <div className="btnRow">
-            <button
-              className={selected === "myself" ? "activeBtn" : ""}
-              onClick={() => handleSelect("myself")}
-            >
-              👤 Myself
-            </button>
-          </div>
-        </div>
-
-        {/* Family */}
-        <div className="group">
-          <p className="groupTitle">
-            My family <span>next of kin & relatives</span>
-          </p>
-
-          <div className="btnRow">
-            <button
-              className={selected === "family-individual" ? "activeBtn" : ""}
-              onClick={() => handleSelect("family-individual")}
-            >
-              👤 Individual
-            </button>
-
-            <button
-              className={selected === "family-group" ? "activeBtn" : ""}
-              onClick={() => handleSelect("family-group")}
-            >
-              👥 Group
-            </button>
-          </div>
-        </div>
-
-        {/* Friends */}
-        <div className="group">
-          <p className="groupTitle">
-            My friends <span>classmates, colleagues & people I know</span>
-          </p>
-
-          <div className="btnRow">
-            <button
-              className={selected === "friends-individual" ? "activeBtn" : ""}
-              onClick={() => handleSelect("friends-individual")}
-            >
-              👤 Individual
-            </button>
-
-            <button
-              className={selected === "friends-group" ? "activeBtn" : ""}
-              onClick={() => handleSelect("friends-group")}
-            >
-              👥 Group
-            </button>
-          </div>
-        </div>
-
-        {/* Others */}
-        <div className="group">
-          <p className="groupTitle">
-            Others <span>people, animals, communities etc</span>
-          </p>
-
-          <div className="btnRow">
-            <button
-              className={selected === "others-individual" ? "activeBtn" : ""}
-              onClick={() => handleSelect("others-individual")}
-            >
-              👤 Individual
-            </button>
-
-            <button
-              className={selected === "others-group" ? "activeBtn" : ""}
-              onClick={() => handleSelect("others-group")}
-            >
-              👥 Group
-            </button>
-          </div>
-        </div>
-
-        <div className="divider"></div>
-
-        {/* NGO */}
-        <div
-          className={`ngo ${selected === "ngo" ? "activeBtn" : ""}`}
-          onClick={() => handleSelect("ngo")}
-        >
-          <h4>🏢 Registered NGO</h4>
-          <p>
-            A registered not-for-profit that has a valid PAN card issued in its name
-          </p>
-        </div>
-
-      </div>
-
-      {error && <p className="error">{error}</p>}
-
-      <div className="bottomBar">
-        <button
-          className="continueBtn"
-          onClick={handleContinue}
-        >
-          Continue
-        </button>
-      </div>
-
+      <Footer />
     </div>
   );
 }

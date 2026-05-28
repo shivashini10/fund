@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff7ed;
+  font-family: Inter, sans-serif;
+}
+
+/* HERO */
+.donateHero {
+  padding: 120px 20px 60px;
+  text-align: center;
+  background: linear-gradient(to right, #fff3e0, #ffe0b2);
+  font-family: Inter, sans-serif;
+}
+
+.donateHero h1 {
+  font-size: 42px;
+  color: #ff6b35;
+  margin-bottom: 14px;
+  font-weight: 800;
+}
+
+.donateHero p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* SINGLE PAGE LAYOUT (UPDATED) */
+.donatePageSingle {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+/* MAIN CARD */
+.donateCard {
+  width: 100%;
+  max-width: 650px;
+  background: white;
+  border-radius: 15px;
+  padding: 35px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* HEADINGS */
+.donateCard h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #ea580c;
+}
+
+.donateCard p {
+  color: gray;
+  margin-bottom: 25px;
+}
+
+/* AMOUNT BUTTONS */
+.amountBox {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.amountBox button {
+  padding: 12px 20px;
+  border: 2px solid #f97316;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  color: #ea580c;
+}
+
+.amountBox button:hover {
+  background: #f97316;
+  color: white;
+  transform: scale(1.05);
+}
+
+.amountBox button.active {
+  background: #f97316;
+  color: white;
+}
+
+/* INPUT GROUP */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.inputGroup label {
+  font-weight: 600;
+  color: #444;
+}
+
+/* INPUTS */
+.inputGroup input,
+.inputGroup select {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #fdba74;
+  outline: none;
+  transition: 0.2s;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
+}
+
+/* PAYMENT BUTTONS */
+.paymentOptions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.paymentOptions button {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.paymentOptions button:hover {
+  background-color: #f97316;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.paymentOptions button.active {
+  background: #f97316;
+  color: white;
+}
+
+/* DONATE BUTTON */
+.donateBtn {
+  width: 100%;
+  background: #f97316;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.donateBtn:hover {
+  background: #ea580c;
+  transform: scale(1.02);
+}
+
+/* ERROR */
+.errorText {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .donateHero h1 {
+    font-size: 32px;
+  }
+
+  .donateCard {
+    padding: 25px;
+  }
+
+  .amountBox {
+    flex-wrap: wrap;
+  }
+}

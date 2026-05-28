@@ -1,0 +1,198 @@
+/* =========================
+   CONTAINER
+========================= */
+
+.chartsContainer {
+  padding: 40px;
+  background: #fff7f3;
+  min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.chartsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.chartsHeader h2 {
+  font-size: 36px;
+  color: #ff7043;
+  margin-bottom: 10px;
+}
+
+.chartsHeader p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.downloadBtn {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 12px;
+  background: #ff7043;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.downloadBtn:hover {
+  background: #f4511e;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   GRID
+========================= */
+
+.analyticsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.analyticsCard {
+  background: white;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.analyticsCard:hover {
+  transform: translateY(-6px);
+}
+
+.analyticsCard h3 {
+  color: #777;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.analyticsCard h1 {
+  font-size: 38px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.analyticsCard span {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+/* =========================
+   CHART BOX
+========================= */
+
+.chartBox {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* =========================
+   TOP
+========================= */
+
+.chartTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.chartTop h3 {
+  font-size: 24px;
+  color: #222;
+}
+
+.chartTop select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+/* =========================
+   FAKE CHART
+========================= */
+
+.fakeChart {
+  height: 300px;
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+}
+
+.bar {
+  flex: 1;
+  border-radius: 14px 14px 0 0;
+  background: linear-gradient(to top, #ff7043, #ffab91);
+}
+
+.bar1 {
+  height: 120px;
+}
+
+.bar2 {
+  height: 220px;
+}
+
+.bar3 {
+  height: 170px;
+}
+
+.bar4 {
+  height: 260px;
+}
+
+.bar5 {
+  height: 190px;
+}
+
+.bar6 {
+  height: 280px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .chartsContainer {
+    padding: 20px;
+  }
+
+  .chartsHeader h2 {
+    font-size: 28px;
+  }
+
+  .chartBox {
+    padding: 20px;
+  }
+
+  .fakeChart {
+    height: 220px;
+    gap: 10px;
+  }
+}

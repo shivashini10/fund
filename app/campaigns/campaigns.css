@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: #fff7f3;
+}
+
+/* =========================
+   CAMPAIGN DETAILS PAGE
+========================= */
+
+.title
+{
+  font-size: 36px;
+  color: #ff7043;
+  margin-bottom: 10px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.campaignPage {
+  max-width: 900px;
+  margin: 120px auto 60px;
+  padding: 20px;
+  background: #fff3e0;
+  border-radius: 20px;
+}
+
+/* HERO IMAGE */
+.campaignImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(255, 112, 67, 0.15);
+}
+
+/* CONTENT WRAPPER */
+.campaignContent {
+  margin-top: 20px;
+}
+
+/* TITLE */
+.campaignContent h1 {
+  font-size: 30px;
+  font-weight: 800;
+  margin-top: 10px;
+  color: #111;
+  margin-left: 5px;
+}
+
+/* CATEGORY BADGE */
+.category {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #fff0eb;
+  color: #ff7043;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* STORY */
+.story {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.7;
+}
+
+/* STATS ROW */
+.statsRow {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+/* STAT CARD */
+.statsCard {
+  flex: 1;
+  background: white;
+  padding: 15px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.statsCard h3 {
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.statsCard p {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ff7043;
+}
+
+/* PROGRESS SECTION */
+.progressSection {
+  margin-top: 25px;
+}
+
+.progressTop {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+/* PROGRESS BAR */
+.progressBar {
+  width: 100%;
+  height: 10px;
+  background: #ffffff;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  width: 30%; /* demo value */
+  height: 100%;
+  background: linear-gradient(90deg, #ff7043, #ff8a65);
+}
+
+/* DONATE BUTTON */
+.donateNowBtn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #ff7043, #ff8a65);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.donateNowBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(255, 112, 67, 0.25);
+}
+
+/* LOADING */
+.loadingPage {
+  text-align: center;
+  margin-top: 150px;
+  font-size: 18px;
+  color: #ff7043;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .campaignPage {
+    margin: 100px 15px;
+    padding: 15px;
+  }
+
+  .campaignImage {
+    height: 250px;
+  }
+
+  .campaignContent h1 {
+    font-size: 24px;
+  }
+
+  .statsRow {
+    flex-direction: column;
+  }
+}

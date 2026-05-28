@@ -1,0 +1,186 @@
+/* =========================
+   PAGE WRAPPER
+========================= */
+
+.paymentsPage {
+  min-height: 100vh;
+  background: #fff7f3;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.paymentsContainer {
+      padding: 120px 20px 60px;
+  text-align: center;
+  background: linear-gradient(to right, #fff3e0, #ffe0b2);
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.pageTitle {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ff7043;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* =========================
+   LOADING / ERROR
+========================= */
+
+.loadingText {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  padding: 30px;
+}
+
+.errorText {
+  text-align: center;
+  color: #d93025;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.emptyBox {
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-top: 20px;
+}
+
+.emptyBox h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.emptyBox p {
+  color: #777;
+}
+
+/* =========================
+   PAYMENTS GRID
+========================= */
+
+.paymentsWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* =========================
+   PAYMENT CARD
+========================= */
+
+.paymentCard {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  border: 1px solid #f1f1f1;
+}
+
+.paymentCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   AMOUNT BOX
+========================= */
+
+.amountBox {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ff7043;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   PAYMENT INFO
+========================= */
+
+.paymentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status {
+  font-size: 14px;
+  color: #444;
+}
+
+/* =========================
+   STATUS BADGES
+========================= */
+
+.statusBadge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 6px;
+  text-transform: capitalize;
+}
+
+/* Success */
+.statusBadge.success {
+  background: #e7f8ee;
+  color: #1a7f37;
+}
+
+/* Pending */
+.statusBadge.pending {
+  background: #fff4e5;
+  color: #b45309;
+}
+
+/* Failed */
+.statusBadge.failed {
+  background: #fde8e8;
+  color: #b91c1c;
+}
+
+/* =========================
+   DATE TEXT
+========================= */
+
+.paymentInfo small {
+  color: #888;
+  font-size: 12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+  .pageTitle {
+    font-size: 28px;
+  }
+
+  .paymentCard {
+    padding: 16px;
+  }
+
+  .amountBox {
+    font-size: 18px;
+  }
+}
