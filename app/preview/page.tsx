@@ -62,7 +62,8 @@ export default function PreviewPage() {
     );
 
     if (!res.ok) {
-      throw new Error("Server error while publishing");
+      const errorText = await res.text();
+      throw new Error(errorText || "Server error while publishing");
     }
 
     const result = await res.json();
